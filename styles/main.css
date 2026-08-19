@@ -1,0 +1,382 @@
+/* ── Import Google Font ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ── Root variables ── */
+:root {
+    --bg: #FAF8F5;
+    --bg-card: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-secondary: #6B6B6B;
+    --accent: #1A1A1A;
+    --accent-hover: #333333;
+    --border: #E8E4DF;
+    --success: #2E7D32;
+    --success-bg: #E8F5E9;
+    --danger: #C62828;
+    --danger-bg: #FFEBEE;
+    --warning-bg: #FFF8E1;
+    --warning: #F57F17;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* ── Global ── */
+.stApp {
+    background-color: var(--bg) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* ── Desktop container ── */
+.block-container {
+    max-width: 100% !important;
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+    padding-top: 1rem !important;
+}
+
+/* ── Hide default Streamlit chrome ── */
+#MainMenu, footer, header { visibility: hidden; }
+.stDeployButton { display: none !important; }
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6, p, li, span, div, label {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* ── Custom navbar ── */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1.5px solid var(--border);
+    margin-bottom: 2rem;
+}
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    text-decoration: none;
+}
+.navbar-links {
+    display: flex;
+    gap: 1.5rem;
+}
+.navbar-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.navbar-links a:hover { color: var(--text-primary); }
+
+/* ── Hero section ── */
+.hero {
+    text-align: center;
+    padding: 2rem 1rem 1.5rem;
+}
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--text-primary);
+    letter-spacing: -1.5px;
+    margin-bottom: 1rem;
+}
+.hero p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+/* ── Buttons ── */
+.btn-row {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1.5px solid transparent;
+    font-family: 'Inter', sans-serif !important;
+}
+.btn-primary {
+    background: var(--accent);
+    color: #FFFFFF;
+    border-color: var(--accent);
+}
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.btn-outline {
+    background: transparent;
+    color: var(--text-primary);
+    border-color: var(--border);
+}
+.btn-outline:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+/* ── Card ── */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+/* ── Result badges ── */
+.result-badge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+.result-normal {
+    background: var(--success-bg);
+    color: var(--success);
+}
+.result-pneumonia {
+    background: var(--danger-bg);
+    color: var(--danger);
+}
+
+/* ── Probability bar ── */
+.prob-bar-container {
+    background: #F0EDEA;
+    border-radius: 50px;
+    height: 10px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
+.prob-bar-fill {
+    height: 100%;
+    border-radius: 50px;
+    transition: width 0.6s ease;
+}
+
+/* ── Metric row ── */
+.metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+.metric-row:last-child { border-bottom: none; }
+.metric-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+.metric-value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ── Disclaimer ── */
+.disclaimer {
+    background: var(--warning-bg);
+    border-left: 4px solid var(--warning);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1rem 1.25rem;
+    font-size: 0.85rem;
+    color: #5D4E37;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+}
+
+/* ── How-It-Works sections ── */
+.hiw-section {
+    margin-bottom: 2.5rem;
+}
+.hiw-section h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+}
+.hiw-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 1.25rem 0 0.5rem;
+}
+.hiw-section p, .hiw-section li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+.hiw-section ul {
+    padding-left: 1.25rem;
+}
+
+/* ── Architecture diagram (text-based) ── */
+.arch-block {
+    background: #F5F3F0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    overflow-x: auto;
+    color: var(--text-primary);
+}
+
+/* ── Step card for pipeline ── */
+.step-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 0.75rem;
+    box-shadow: var(--shadow);
+}
+.step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: #FFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+.step-body h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem;
+}
+.step-body p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ── Upload area styling ── */
+.upload-header {
+    text-align: center;
+    padding: 2rem 0 1rem;
+}
+.upload-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+}
+.upload-header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ── Footer ── */
+.app-footer {
+    text-align: center;
+    padding: 2rem 0 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+}
+.app-footer p {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+/* ── Grad-CAM Legend ── */
+.gradcam-legend {
+    margin-top: 1rem;
+    padding: 0;
+}
+.gradcam-legend-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+.gradcam-legend-bar {
+    height: 10px;
+    border-radius: 50px;
+    background: linear-gradient(to right, #0000FF, #00FFFF, #00FF00, #FFFF00, #FF0000);
+    margin-bottom: 0.25rem;
+}
+.gradcam-legend-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+.gradcam-legend-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── Streamlit overrides ── */
+.stFileUploader > div > div {
+    border-radius: var(--radius) !important;
+    border: 2px dashed var(--border) !important;
+}
+.stFileUploader > div > div:hover {
+    border-color: var(--accent) !important;
+}
+div[data-testid="stImage"] {
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+/* ── Button overrides ── */
+.stButton > button {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    border-radius: 50px !important;
+    border: 1.5px solid var(--border) !important;
+    background: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    padding: 0.5rem 1.25rem !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+    white-space: nowrap !important;
+}
+.stButton > button:hover {
+    border-color: var(--accent) !important;
+    background: var(--accent) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+.stButton > button:active {
+    transform: translateY(0);
+}
